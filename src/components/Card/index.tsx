@@ -6,11 +6,11 @@ import { toast, ToastContainer } from "react-toastify";
 
 export default function Card() {
 const [cep, setCep] = useState<CEP | null>(null);
-const meuInputRef = useRef<HTMLInputElement>(null);
+const inputCepValue = useRef<HTMLInputElement>(null);
 
 
 const handleCepClick = () => {
-  const inputCep = meuInputRef.current?.value;
+  const inputCep = inputCepValue.current?.value;
   if(inputCep) {
     get(`https://viacep.com.br/ws/${inputCep}/json/`)
       .then(response => {
@@ -34,7 +34,7 @@ const handleCepClick = () => {
             type="text"
             className="border-2 border-gray-400 bg-white text-black p-2 rounded-lg w-full"
             placeholder="Digite o CEP"
-            ref={meuInputRef}
+            ref={inputCepValue}
           />
         </div>
       </div>
@@ -50,7 +50,7 @@ const handleCepClick = () => {
             disabled
           />
         </div>
-        <div className="Complemento w-full">
+        <div className="w-full">
           <h3 className="font-bold text-lg">Complemento</h3>
           <input
             type="text"
@@ -60,7 +60,7 @@ const handleCepClick = () => {
             disabled
           />
         </div>
-        <div className="Unidade w-full">
+        <div className="w-full">
           <h3 className="font-bold text-lg">Unidade</h3>
           <input
             type="text"
@@ -70,7 +70,7 @@ const handleCepClick = () => {
             disabled
           />
         </div>
-        <div className="Bairro w-full">
+        <div className="w-full">
           <h3 className="font-bold text-lg">Bairro</h3>
           <input
             type="text"
@@ -93,7 +93,7 @@ const handleCepClick = () => {
             disabled
           />
         </div>
-        <div className="UF w-full">
+        <div className="w-full">
           <h3 className="font-bold text-lg">UF</h3>
           <input
             type="text"
@@ -103,7 +103,7 @@ const handleCepClick = () => {
             disabled
           />
         </div>
-        <div className="Estado w-full">
+        <div className="w-full">
           <h3 className="font-bold text-lg">Estado</h3>
           <input
             type="text"
@@ -113,7 +113,7 @@ const handleCepClick = () => {
             disabled
           />
         </div>
-        <div className="Regiao w-full">
+        <div className="w-full">
           <h3 className="font-bold text-lg">Região</h3>
           <input
             type="text"
